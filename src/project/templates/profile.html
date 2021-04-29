@@ -1,0 +1,25 @@
+<!-- templates/profile.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome, {{ name }}!
+</h1>
+<h3 class="title">
+  Your preferences
+</h3>
+<div class="box">
+    {% if preferences == [] %}
+          <div class="notification is-info">
+              You have no preferences, but you can <a href="{{ url_for('main.index') }}">add some</a>.
+          </div>
+    {% endif %}
+    <ul>
+    {% for i in preferences%}
+            <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
