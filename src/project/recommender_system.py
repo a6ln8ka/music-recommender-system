@@ -126,7 +126,8 @@ def pretty_recommend_artist(df_by_artists, name_rate_dict, how_many):
     plt.ylabel("Score")
     plt.title("Top "+str(how_many)+" Favourite Artists")
 
-def songs_dict(df_by_artists, name_rate_dict, how_many):
+def songs_dict(name_rate_dict, how_many):
+    df_by_artists = pd.read_csv("data_w_genres.csv")
     df_scores = recommend_artist_by_genre(df_by_artists, name_rate_dict, how_many)
     return df_scores.to_dict()
 
@@ -142,5 +143,3 @@ how_many = 10
 
 # query_artists(df_by_artists, list(name_rate_dict_3.keys()))
 # print(type(recommend_artist_by_genre(df_by_artists, name_rate_dict_3, how_many)))
-# pretty_recommend_artist(df_by_artists, name_rate_dict_3, how_many)
-

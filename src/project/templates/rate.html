@@ -6,30 +6,26 @@
 <div class="column is-4 is-offset-4">
     <h3 class="title">Add  artists</h3>
     <div class="box">
-        <form method="POST" action="/rate">
+        <form method="GET" action="/rate">
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="text" name="name" value={{name}} autofocus="" disabled>
-                    <input type="hidden" id="artist" name="artist" value={{name}}>
+                    <p>Name: {{ name }}</p>
+                    <input class="input is-large" type="text" name="artistname" value="{{name}}" autofocus="" disabled>
+                    <input type="hidden" id="artist" name="artist_name" value="{{name}}" />
                 </div>
             </div>
 
-            <input type="range" id="points" name="rate" min="0" max="10">
+            <input type="range" id="points" name="rate" min="1" max="10">
             <button class="button is-block is-info is-large is-fullwidth">Add</button>
         </form>
     </div>
-     <button class="button is-block is-info is-large is-fullwidth">Get reccomendations</button>
+    <form method="POST" action="/rate">
+        <button class="button is-block is-info is-large is-fullwidth">Get recommendations</button>
+    </form>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <div class="notification is-danger">
-        {{ messages[0] }}. Add some artists before.
-    </div>
-    {% endif %}
-    {% endwith %}
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <div>
-        {{recommendations}}
+        {{ messages[0] }}.
     </div>
     {% endif %}
     {% endwith %}
