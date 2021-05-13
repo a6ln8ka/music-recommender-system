@@ -1,0 +1,17 @@
+@startuml
+entity Preference <<ENTITY>> {
+    id: INTEGER
+    user_id: INTEGER
+    name: TEXT
+    rate: INTEGER 
+}
+
+entity User <<ENTITY>> {
+    id: INTEGER
+    email: EMAIL
+    password: PASSWORD
+    name: TEXT
+}
+
+Preference "0,*" -u- "1,1" User
+@enduml

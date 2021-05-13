@@ -1,0 +1,17 @@
+@startuml
+
+usecase UC_01 as "<b>UC_01</b>\nРеєстрація"
+usecase UC_02 as "<b>UC_02</b>\Вхід"
+usecase UC_03 as "<b>UC_03</b>\nОцінити виконавця"
+usecase UC_04 as "<b>UC_04</b>\nОтримати рекомендації"
+usecase UC_05 as "<b>UC_05</b>\nДодати музичного виконаця"
+
+actor :Користувач: as user
+
+user -d-> UC_01
+user -d-> UC_02
+user -d-> UC_03
+user -d-> UC_04
+user -d-> UC_05
+
+@enduml
