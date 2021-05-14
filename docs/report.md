@@ -47,7 +47,7 @@
 
 ### <a name="l31">3.1. Діаграма юзкейсів</a>
 
-![use-cases](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/doc/uml/general.puml)
+![use-cases](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/docs/uml/general.puml)
 
 ### <a name="l32">3.2. Сценарії</a>
 
@@ -76,7 +76,7 @@
 6. Система додає введені дані до бази даних.
 7. Користувач має новий обліковий запис.
 
-![scenario 1](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/doc/uml/UC/UC_01.puml)
+![scenario 1](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/docs/uml/UC/UC_01.puml)
 
 #### Сценарій №2
 
@@ -102,7 +102,7 @@
 5. Система перевіряє введені дані(можливі EX.001.002, EX.001.003).
 6. Користувач отримує доступ до свого олікового запису.
 
-![scenario 2](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/doc/uml/UC/UC_02.puml)
+![scenario 2](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/docs/uml/UC/UC_02.puml)
 
 #### Сценарій №3
 
@@ -126,7 +126,7 @@
 4. Система зберігає введене ім'я та перенаправляє користувача на сторінку для оцінки введеного виконавця.
 5. Користувач отримує можливість оцінити виконавця(UC.04).
 
-![scenario 3](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/doc/uml/UC/UC_03.puml)
+![scenario 3](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/docs/uml/UC/UC_03.puml)
 
 #### Сценарій №4
 
@@ -150,7 +150,7 @@
 4. Система повертає користувача на головну сторінку.
 5. Користувач має збережені ім'я та оцінку виконавця для отримання кращих рекомендацій.
 
-![scenario 4](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/doc/uml/UC/UC_04.puml)
+![scenario 4](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/docs/uml/UC/UC_04.puml)
 
 #### Сценарій №5
 
@@ -173,7 +173,7 @@
 3. Система перенаправляє користувача на сторінку з рекомендаціями.
 4. Користувач отримує список рекомендованих виконавців.
 
-![scenario 5](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/doc/uml/UC/UC_05.puml)
+![scenario 5](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/docs/uml/UC/UC_05.puml)
 
 ### <a name="l33">3.3. Проектування інтерфейсу</a>
 
@@ -209,11 +209,11 @@
 
 ### <a name="l41">4.1. Структура БД</a>
 
-![database](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/doc/uml/er.puml)
+![database](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/docs/uml/er.puml)
 
 ### <a name="l42">4.2. Документація</a>
 
-За допомогою pydoc було розроблено документацію коду
+За допомогою pydoc було розроблено документацію коду, яку можна переглянути за посиланням https://al3nka.github.io/music-recommender-system/
 
 ## <a name="l5">5. Тестування</a>
 
