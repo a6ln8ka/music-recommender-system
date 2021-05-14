@@ -1,4 +1,7 @@
-# auth.py
+"""
+auth.py
+Contains methods for login page, sign up page and logout method
+"""
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -10,10 +13,22 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/login')
 def login():
+    """This method is executed when the user press "login" button.
+    It returns login page
+
+
+    """
     return render_template('login.html')
+
 
 @auth.route('/login', methods=['POST'])
 def login_post():
+    """This method is executed when the user press "login" button
+    at the login page. It checks the data in fields and redirects to
+    profile page if user data exists in database
+
+
+    """
     email = request.form.get('email')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
@@ -30,13 +45,25 @@ def login_post():
     login_user(user, remember=remember)
     return redirect(url_for('main.profile'))
 
+
 @auth.route('/signup')
 def signup():
+    """This method is executed when the user press "sign up" button.
+    It returns sign up page
+
+
+    """
     return render_template('signup.html')
+
 
 @auth.route('/signup', methods=['POST'])
 def signup_post():
+    """This method is executed when the user press "sign up" button
+    at the sign up page. It checks the data in fields and redirects to
+    sign page if user data exists in database, or adds user to db
 
+
+    """
     email = request.form.get('email')
     name = request.form.get('name')
     password = request.form.get('password')
@@ -59,5 +86,10 @@ def signup_post():
 @auth.route('/logout')
 @login_required
 def logout():
+    """This method is executed when the user press "logout" button.
+     It returns homepage page
+
+
+    """
     logout_user()
     return redirect(url_for('main.index'))

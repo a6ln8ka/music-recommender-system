@@ -1,4 +1,7 @@
-# main.py
+"""
+main.py
+Contains methods for the homepage, profile, add artist page and rate page
+"""
 
 from flask import Blueprint, render_template, redirect, request, flash
 from flask_login import login_required, current_user
@@ -11,28 +14,38 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
+    """"This method is executed when the user goes to the main page
+    if the user authorized then it returns add artist page,
+    if not - index page
+
+
+    """
     if current_user.is_authenticated:
         return render_template('add_artists.html')
     else:
         return render_template('index.html')
 
 
-# @main.route('/', methods=['POST'])
-# @login_required
-# def index_post():
-#     return 0
-
-
-# @main.route('/rate')
-# @login_required
 def render_rate_page(artist_name):
-    print("\nName from rate func")
+    """This method is executed in rate_get function if user have not
+    rated the artist. It returns rate page
+
+    :param artist_name: 
+
+    """
     return render_template('rate.html', name=artist_name)
 
 
 @main.route('/rate', methods=['GET', 'POST'])
 @login_required
 def rate_get():
+    """This method is executed when user pushes "add artist" button
+    at add artist page or rate page, it redirects user to rate page
+    if rate is none, or adds new preference to db and redirect to add
+    artist page
+
+
+    """
     if request.method == 'GET':
         artist = request.args.get('artist_name', None)
         rate = request.args.get('rate', None)
@@ -53,6 +66,11 @@ def rate_get():
 @main.route('/recommendations')
 @login_required
 def recommendations():
+    """This method creates list of recommendations and
+    returns page with recommendations
+
+
+    """
     userId = current_user.id
     preferences = Preference.query.all()
     artists_dict = dict()
@@ -70,6 +88,11 @@ def recommendations():
 @main.route('/profile')
 @login_required
 def profile():
+    """This method is executed when user press "home" button.
+    It returns the homepage with the list of the artists user've added
+
+
+    """
     userId = current_user.id
     preferences = Preference.query.all()
     artists = []

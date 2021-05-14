@@ -1,16 +1,45 @@
+"""
+recommender_system.py
+Creates content-based recommendations
+"""
 import numpy as np
 import pandas as pd
 import re
 import ast
 from matplotlib import pyplot as plt
 
+
 def col(df, colname = "artists"):
+    """
+
+    :param df: 
+    :param colname:  (Default value = "artists")
+
+    """
     return np.array([int(x == colname) for x in df.columns]).argmax()
 
+
 def query_artists(df, lists = [], full = False, strict = True):
+    """
+
+    :param df: 
+    :param lists:  (Default value = [])
+    :param full:  (Default value = False)
+    :param strict:  (Default value = True)
+
+    """
     return pd.concat([query_artist(df, string = name, strict = strict) for name in lists], axis = 0)
 
+
 def query_artist(df, string = "--", full = False, strict = True):
+    """
+
+    :param df: 
+    :param string:  (Default value = "--")
+    :param full:  (Default value = False)
+    :param strict:  (Default value = True)
+
+    """
     lists = []
     for i, artist in enumerate(df["artists"]):
         if(len(re.findall(string, "".join(artist))) != 0):
@@ -30,13 +59,28 @@ def query_artist(df, string = "--", full = False, strict = True):
     else:
         return pd.DataFrame(lists, columns = ["artists", "genres"])
 
+
 def perfect_eval(string):
+    """This method evaluates string
+
+    :param string: 
+
+    """
     try:
         return ast.literal_eval(string)
     except:
         return []
 
+
 def create_random_dict(df_by_artists, length, score):
+    """This method is used to test the system. It creates random
+    dictionary of artists and rates
+
+    :param df_by_artists: 
+    :param length: 
+    :param score: 
+
+    """
     list_of_names = list(set(df_by_artists["artists"]))
     random_indices = [round(x) for x in np.random.random(length)*len(list_of_names)]
     random_names = pd.Series(list_of_names).iloc[random_indices].values.tolist()
@@ -46,7 +90,14 @@ def create_random_dict(df_by_artists, length, score):
         name_rate_dict.update({random_names[index]: random_rates[index]})
     return name_rate_dict
 
+
 def rate_artist(df_by_artists, name_rate_dict):
+    """This method selects best-rated genres from the name_rate_dict
+
+    :param df_by_artists: 
+    :param name_rate_dict: 
+
+    """
     #convert the name_rate_series to a pandas dataframe
     name_rate_series = pd.DataFrame({"rate": name_rate_dict.values, "artists": name_rate_dict.index})
     #create a new dataframe, only selecting the artists and genres columns of artists selected by user
@@ -69,7 +120,15 @@ def rate_artist(df_by_artists, name_rate_dict):
     df_profile = df_genre_matrix.transpose().dot(df_user)
     return df_profile
 
+
 def select_artist(df_by_artists, df_rate):
+    """This method selects artists which perform the same genre as
+    artists were given
+
+    :param df_by_artists: 
+    :param df_rate: 
+
+    """
     # save the indices of artists, which include any of the genres in the genre profile
     list_of_id = []
     for index, row in df_by_artists.iterrows():
@@ -90,7 +149,16 @@ def select_artist(df_by_artists, df_rate):
     df_select = df_select.fillna(0)[df_rate.index]
     return df_select
 
+
 def recommend_artist_by_genre(df_by_artists, name_rate_dict, how_many):
+    """This method is used to create recommendations based on dictionary
+    of artists names and rates
+
+    :param df_by_artists: 
+    :param name_rate_dict: 
+    :param how_many: 
+
+    """
     df_by_artists = df_by_artists.copy()
     #make sure that genres are list, not string
     df_by_artists["genres"] = [perfect_eval(genre) for genre in df_by_artists["genres"]]
@@ -113,7 +181,15 @@ def recommend_artist_by_genre(df_by_artists, name_rate_dict, how_many):
     #create new indices
     return output.reset_index()
 
+
 def pretty_recommend_artist(df_by_artists, name_rate_dict, how_many):
+    """"This method is used if the print in the console needed
+
+    :param df_by_artists: 
+    :param name_rate_dict: 
+    :param how_many: 
+
+    """
     df_scores = recommend_artist_by_genre(df_by_artists, name_rate_dict, how_many)
     print("\n\n--- GENRE AFFINITY ---\n\n")
     for index, row in df_scores.iterrows():
@@ -126,10 +202,19 @@ def pretty_recommend_artist(df_by_artists, name_rate_dict, how_many):
     plt.ylabel("Score")
     plt.title("Top "+str(how_many)+" Favourite Artists")
 
+
 def songs_dict(name_rate_dict, how_many):
+    """This function is used in main.py. It returns dictionary of recommended
+    songs, which viewed when user presses "get recommendations" button
+
+    :param name_rate_dict: 
+    :param how_many: 
+
+    """
     df_by_artists = pd.read_csv("data_w_genres.csv")
     df_scores = recommend_artist_by_genre(df_by_artists, name_rate_dict, how_many)
     return df_scores.to_dict()
+
 
 df_by_artists = pd.read_csv("data_w_genres.csv")
 # name_rate_dict = create_random_dict(df_by_artists, 10, [0, 10])
@@ -137,8 +222,6 @@ df_by_artists = pd.read_csv("data_w_genres.csv")
 #                     "Green Day": 8, "Foo Fighters": 1, "Billy Talent": 2, "Nirvana": 5, "The Offspring": 3}
 # name_rate_dict_2 = {"Rihanna": 10, "Beyonce": 9, "Britney Spears": 7, "Adele": 4, "Camila Cabello": 6, "Ciara": 8,
 #                  "Nicki Minaj": 8, "Iggy Azalea": 8, "Ariana Grande": 5, "Clean Bandit": 3}
-name_rate_dict_3 = {"MGMT": 10, "Temples": 10, "Glass Animals": 7, "The Beatles": 8, "The Clash": 7, "Alphaville": 5,
-                    "One Direction": 6, "David Bowie": 7}
 how_many = 10
 
 # query_artists(df_by_artists, list(name_rate_dict_3.keys()))
