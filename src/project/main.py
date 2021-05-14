@@ -68,8 +68,6 @@ def rate_get():
 def recommendations():
     """This method creates list of recommendations and
     returns page with recommendations
-
-
     """
     userId = current_user.id
     preferences = Preference.query.all()

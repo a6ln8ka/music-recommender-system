@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module auth</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>auth</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br></font></td></tr></table>
+    <p><tt>auth.py<br>
+Contains&nbsp;methods&nbsp;for&nbsp;login&nbsp;page,&nbsp;sign&nbsp;up&nbsp;page&nbsp;and&nbsp;logout&nbsp;method</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-login"><strong>login</strong></a>()</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;executed&nbsp;when&nbsp;the&nbsp;user&nbsp;press&nbsp;"login"&nbsp;button.<br>
+It&nbsp;returns&nbsp;login&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-login_post"><strong>login_post</strong></a>()</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;executed&nbsp;when&nbsp;the&nbsp;user&nbsp;press&nbsp;"login"&nbsp;button<br>
+at&nbsp;the&nbsp;login&nbsp;page.&nbsp;It&nbsp;checks&nbsp;the&nbsp;data&nbsp;in&nbsp;fields&nbsp;and&nbsp;redirects&nbsp;to<br>
+profile&nbsp;page&nbsp;if&nbsp;user&nbsp;data&nbsp;exists&nbsp;in&nbsp;database</tt></dd></dl>
+ <dl><dt><a name="-logout"><strong>logout</strong></a>()</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;executed&nbsp;when&nbsp;the&nbsp;user&nbsp;press&nbsp;"logout"&nbsp;button.<br>
+It&nbsp;returns&nbsp;homepage&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-signup"><strong>signup</strong></a>()</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;executed&nbsp;when&nbsp;the&nbsp;user&nbsp;press&nbsp;"sign&nbsp;up"&nbsp;button.<br>
+It&nbsp;returns&nbsp;sign&nbsp;up&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-signup_post"><strong>signup_post</strong></a>()</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;executed&nbsp;when&nbsp;the&nbsp;user&nbsp;press&nbsp;"sign&nbsp;up"&nbsp;button<br>
+at&nbsp;the&nbsp;sign&nbsp;up&nbsp;page.&nbsp;It&nbsp;checks&nbsp;the&nbsp;data&nbsp;in&nbsp;fields&nbsp;and&nbsp;redirects&nbsp;to<br>
+sign&nbsp;page&nbsp;if&nbsp;user&nbsp;data&nbsp;exists&nbsp;in&nbsp;database,&nbsp;or&nbsp;adds&nbsp;user&nbsp;to&nbsp;db</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>auth</strong> = &lt;Blueprint 'auth'&gt;<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

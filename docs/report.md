@@ -211,8 +211,24 @@
 
 ![database](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/al3nka/music-recommender-system/main/doc/uml/er.puml)
 
+### <a name="l42">4.2. Документація</a>
+
+За допомогою pydoc було розроблено документацію коду
 
 ## <a name="l5">5. Тестування</a>
+
+Тести виконано за допомогою середовища тестування pytest
+
+```
+================================================= test session starts =================================================
+platform win32 -- Python 3.9.4, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+rootdir: music-recommender-system
+collected 7 items
+
+..\test\test_site.py .......                                                                      [100%]
+
+================================================= 7 passed in 11.27s ==================================================
+```
 
 ## <a name="l6">6. Висновки</a>
 

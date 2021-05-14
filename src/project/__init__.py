@@ -12,8 +12,6 @@ db = SQLAlchemy()
 def create_app():
     """This method creates app, sets configuration,
     registers bluebrints
-
-
     """
     app = Flask(__name__)
 

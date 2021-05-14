@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module recommender_system</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>recommender_system</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br></font></td></tr></table>
+    <p><tt>recommender_system.py<br>
+Creates&nbsp;content-based&nbsp;recommendations</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ast.html">ast</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+<a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-col"><strong>col</strong></a>(df, colname='artists')</dt><dd><tt>:param&nbsp;df:&nbsp;<br>
+:param&nbsp;colname:&nbsp;&nbsp;(Default&nbsp;value&nbsp;=&nbsp;"artists")</tt></dd></dl>
+ <dl><dt><a name="-create_random_dict"><strong>create_random_dict</strong></a>(df_by_artists, length, score)</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;used&nbsp;to&nbsp;test&nbsp;the&nbsp;system.&nbsp;It&nbsp;creates&nbsp;random<br>
+dictionary&nbsp;of&nbsp;artists&nbsp;and&nbsp;rates<br>
+&nbsp;<br>
+:param&nbsp;df_by_artists:&nbsp;<br>
+:param&nbsp;length:&nbsp;<br>
+:param&nbsp;score:</tt></dd></dl>
+ <dl><dt><a name="-perfect_eval"><strong>perfect_eval</strong></a>(string)</dt><dd><tt>This&nbsp;method&nbsp;evaluates&nbsp;string<br>
+&nbsp;<br>
+:param&nbsp;string:</tt></dd></dl>
+ <dl><dt><a name="-pretty_recommend_artist"><strong>pretty_recommend_artist</strong></a>(df_by_artists, name_rate_dict, how_many)</dt><dd><tt>"This&nbsp;method&nbsp;is&nbsp;used&nbsp;if&nbsp;the&nbsp;print&nbsp;in&nbsp;the&nbsp;console&nbsp;needed<br>
+&nbsp;<br>
+:param&nbsp;df_by_artists:&nbsp;<br>
+:param&nbsp;name_rate_dict:&nbsp;<br>
+:param&nbsp;how_many:</tt></dd></dl>
+ <dl><dt><a name="-query_artist"><strong>query_artist</strong></a>(df, string='--', full=False, strict=True)</dt><dd><tt>:param&nbsp;df:&nbsp;<br>
+:param&nbsp;string:&nbsp;&nbsp;(Default&nbsp;value&nbsp;=&nbsp;"--")<br>
+:param&nbsp;full:&nbsp;&nbsp;(Default&nbsp;value&nbsp;=&nbsp;False)<br>
+:param&nbsp;strict:&nbsp;&nbsp;(Default&nbsp;value&nbsp;=&nbsp;True)</tt></dd></dl>
+ <dl><dt><a name="-query_artists"><strong>query_artists</strong></a>(df, lists=[], full=False, strict=True)</dt><dd><tt>:param&nbsp;df:&nbsp;<br>
+:param&nbsp;lists:&nbsp;&nbsp;(Default&nbsp;value&nbsp;=&nbsp;[])<br>
+:param&nbsp;full:&nbsp;&nbsp;(Default&nbsp;value&nbsp;=&nbsp;False)<br>
+:param&nbsp;strict:&nbsp;&nbsp;(Default&nbsp;value&nbsp;=&nbsp;True)</tt></dd></dl>
+ <dl><dt><a name="-rate_artist"><strong>rate_artist</strong></a>(df_by_artists, name_rate_dict)</dt><dd><tt>This&nbsp;method&nbsp;selects&nbsp;best-rated&nbsp;genres&nbsp;from&nbsp;the&nbsp;name_rate_dict<br>
+&nbsp;<br>
+:param&nbsp;df_by_artists:&nbsp;<br>
+:param&nbsp;name_rate_dict:</tt></dd></dl>
+ <dl><dt><a name="-recommend_artist_by_genre"><strong>recommend_artist_by_genre</strong></a>(df_by_artists, name_rate_dict, how_many)</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;used&nbsp;to&nbsp;create&nbsp;recommendations&nbsp;based&nbsp;on&nbsp;dictionary<br>
+of&nbsp;artists&nbsp;names&nbsp;and&nbsp;rates<br>
+&nbsp;<br>
+:param&nbsp;df_by_artists:&nbsp;<br>
+:param&nbsp;name_rate_dict:&nbsp;<br>
+:param&nbsp;how_many:</tt></dd></dl>
+ <dl><dt><a name="-select_artist"><strong>select_artist</strong></a>(df_by_artists, df_rate)</dt><dd><tt>This&nbsp;method&nbsp;selects&nbsp;artists&nbsp;which&nbsp;perform&nbsp;the&nbsp;same&nbsp;genre&nbsp;as<br>
+artists&nbsp;were&nbsp;given<br>
+&nbsp;<br>
+:param&nbsp;df_by_artists:&nbsp;<br>
+:param&nbsp;df_rate:</tt></dd></dl>
+ <dl><dt><a name="-songs_dict"><strong>songs_dict</strong></a>(name_rate_dict, how_many)</dt><dd><tt>This&nbsp;function&nbsp;is&nbsp;used&nbsp;in&nbsp;main.py.&nbsp;It&nbsp;returns&nbsp;dictionary&nbsp;of&nbsp;recommended<br>
+songs,&nbsp;which&nbsp;viewed&nbsp;when&nbsp;user&nbsp;presses&nbsp;"get&nbsp;recommendations"&nbsp;button<br>
+&nbsp;<br>
+:param&nbsp;name_rate_dict:&nbsp;<br>
+:param&nbsp;how_many:</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>df_by_artists</strong> =                                                 ...['classic korean pop']
+
+[32539 rows x 16 columns]<br>
+<strong>how_many</strong> = 10</td></tr></table>
+</body></html>

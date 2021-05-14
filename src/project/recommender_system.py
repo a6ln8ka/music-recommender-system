@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import re
 import ast
-from matplotlib import pyplot as plt
+import os
 
 
 def col(df, colname = "artists"):
@@ -182,27 +182,6 @@ def recommend_artist_by_genre(df_by_artists, name_rate_dict, how_many):
     return output.reset_index()
 
 
-def pretty_recommend_artist(df_by_artists, name_rate_dict, how_many):
-    """"This method is used if the print in the console needed
-
-    :param df_by_artists: 
-    :param name_rate_dict: 
-    :param how_many: 
-
-    """
-    df_scores = recommend_artist_by_genre(df_by_artists, name_rate_dict, how_many)
-    print("\n\n--- GENRE AFFINITY ---\n\n")
-    for index, row in df_scores.iterrows():
-        print("Number ",str(index),": ",row["artists"]," matching ",str(round(row["genre_affinity"] * 100, 2)),"%")
-    print("\n\n")
-    plt.figure(figsize = (10, 10))
-    plt.bar(list(df_scores["artists"]), list(df_scores["genre_affinity"]), color = ["green" for x in range(how_many)])
-    plt.xticks(rotation = 90)
-    plt.xlabel("Artists")
-    plt.ylabel("Score")
-    plt.title("Top "+str(how_many)+" Favourite Artists")
-
-
 def songs_dict(name_rate_dict, how_many):
     """This function is used in main.py. It returns dictionary of recommended
     songs, which viewed when user presses "get recommendations" button
@@ -211,18 +190,8 @@ def songs_dict(name_rate_dict, how_many):
     :param how_many: 
 
     """
-    df_by_artists = pd.read_csv("data_w_genres.csv")
+    dir = os.getcwd()
+    df_by_artists = pd.read_csv(dir + "//data_w_genres.csv")
     df_scores = recommend_artist_by_genre(df_by_artists, name_rate_dict, how_many)
     return df_scores.to_dict()
 
-
-df_by_artists = pd.read_csv("data_w_genres.csv")
-# name_rate_dict = create_random_dict(df_by_artists, 10, [0, 10])
-# name_rate_dict_1 = {"Linkin Park": 10, "Red Hot Chili Peppers": 9, "Three Days Grace": 7, "Arctic Monkeys": 4, "Papa Roach": 6,
-#                     "Green Day": 8, "Foo Fighters": 1, "Billy Talent": 2, "Nirvana": 5, "The Offspring": 3}
-# name_rate_dict_2 = {"Rihanna": 10, "Beyonce": 9, "Britney Spears": 7, "Adele": 4, "Camila Cabello": 6, "Ciara": 8,
-#                  "Nicki Minaj": 8, "Iggy Azalea": 8, "Ariana Grande": 5, "Clean Bandit": 3}
-how_many = 10
-
-# query_artists(df_by_artists, list(name_rate_dict_3.keys()))
-# print(type(recommend_artist_by_genre(df_by_artists, name_rate_dict_3, how_many)))
